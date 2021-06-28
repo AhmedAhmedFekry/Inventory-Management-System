@@ -19,12 +19,17 @@
 
     
 
-    <title>Home Page</title>
+    <title>
+        {% block title %}
+          
+        {% endblock title %}
+    </title>
 </head>
 
 <body>
 
  {% include "partials/nav.html" %}
+ {% include "partials/topside.html" %}
 
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -4,3 +4,12 @@ from django.shortcuts import render
 
 def index(request):
     return render(request,'dashboard/index.html',{})
+
+def products(request):
+    return render(request,'dashboard/products.html',{})
+
+def customers(request):
+    return render(request,'dashboard/products.html',{})
+def order(request):
+   
+    return render(request, 'dashboard/order.html', {})
