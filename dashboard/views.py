@@ -9,7 +9,7 @@ def products(request):
     return render(request,'dashboard/products.html',{})
 
 def customers(request):
-    return render(request,'dashboard/products.html',{})
+    return render(request,'dashboard/staff.html',{})
 def order(request):
    
     return render(request, 'dashboard/order.html', {})
