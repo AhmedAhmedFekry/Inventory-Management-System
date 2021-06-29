@@ -4,7 +4,7 @@ from django.urls import path ,include
 from dashboard import views
 urlpatterns = [
     
-    path('', views.index, name='dashboard-index'),
+    path('dashboard/', views.index, name='dashboard-index'),
      path('products/', views.products, name='dashboard-products'),
     # path('products/delete/<int:pk>/', views.product_delete,
     #      name='dashboard-products-delete'),
