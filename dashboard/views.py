@@ -10,6 +10,7 @@ from .models import Order, Product ,Category
 @login_required(login_url='user-login')
 def index(request):
     order = Order.objects.all()
+    product = Product.objects.all()
 
     if request.method == 'POST':
         form = OrderForm(request.POST)
@@ -20,7 +21,7 @@ def index(request):
             return redirect('dashboard-index')
     else:
         form = OrderForm()
-    return render(request,'dashboard/index.html',{'order':order, 'form': form,})
+    return render(request,'dashboard/index.html',{'order':order, 'form': form,'product':product})
 
 # @login_required(login_url='user-login')
 # def products(request):
