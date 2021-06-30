@@ -27,6 +27,20 @@ def customers(request):
    
     }
     return render(request, 'dashboard/customers.html', context)
+
+
+
+@login_required(login_url='user-login')
+# @allowed_users(allowed_roles=['Admin'])
+def customer_detail(request, pk):
+ 
+    customers = User.objects.get(id=pk)
+    context = {
+        'customers': customers,
+       
+    }
+    return render(request, 'dashboard/customers_detail.html', context)
+
 @login_required(login_url='user-login')
 def order(request):
    

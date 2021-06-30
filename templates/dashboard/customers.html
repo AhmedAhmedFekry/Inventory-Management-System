@@ -20,7 +20,7 @@
                 {% for customer in customer %}
                 <tr>
                     <th scope="row"><a class="btn btn-info btn-sm"
-                            href="">View</a></th>
+                            href="{% url 'dashboard-customer-detail' customer.id %}">View</a></th>
                     <td>{{ customer.username }}</td>
                     <td>{{ customer.profile.phone }}</td>
                     <td>{{ customer.email }}</td>
