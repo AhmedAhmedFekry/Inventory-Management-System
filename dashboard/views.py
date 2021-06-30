@@ -18,6 +18,16 @@ def customers(request):
     return render(request,'dashboard/staff.html',{})
 
 @login_required(login_url='user-login')
+# @allowed_users(allowed_roles=['Admin'])
+def customers(request):
+    customer = User.objects.all()
+    
+    context = {
+        'customer': customer,
+   
+    }
+    return render(request, 'dashboard/customers.html', context)
+@login_required(login_url='user-login')
 def order(request):
    
     return render(request, 'dashboard/order.html', {})
