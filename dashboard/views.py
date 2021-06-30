@@ -3,6 +3,8 @@ from django.http.response import HttpResponse
 from django.shortcuts import render ,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ProductForm,OrderForm
+from django.contrib import messages
+
 from .models import Order, Product ,Category 
 # Create your views here.
 @login_required(login_url='user-login')
@@ -64,6 +66,8 @@ def products(request):
         form = ProductForm(request.POST)
         if form.is_valid():
             form.save()
+            product_name = form.cleaned_data.get('name')
+            messages.success(request, f'{product_name} has been added')
             
             return redirect('dashboard-products')
     else:
