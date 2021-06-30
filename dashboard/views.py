@@ -3,7 +3,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render ,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ProductForm
-from .models import Product ,Category 
+from .models import Order, Product ,Category 
 # Create your views here.
 @login_required(login_url='user-login')
 def index(request):
@@ -41,10 +41,6 @@ def customer_detail(request, pk):
     }
     return render(request, 'dashboard/customers_detail.html', context)
 
-@login_required(login_url='user-login')
-def order(request):
-   
-    return render(request, 'dashboard/order.html', {})
 
 
 
@@ -107,3 +103,15 @@ def product_delete(request, pk):
         'item': item
     }
     return render(request, 'dashboard/products_delete.html', context)
+
+
+
+@login_required(login_url='user-login')
+def order(request):
+    order = Order.objects.all()
+
+    context = {
+        'order': order,
+  
+    }
+    return render(request, 'dashboard/order.html', context)
